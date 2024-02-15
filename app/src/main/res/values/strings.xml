@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">AndroidProjectCollection</string>
+    <string name="activity1">Layout Exercise</string>
+    <string name="activity2">Button2</string>
+    <string name="activity3">Button3</string>
+    <string name="activity4">Button4</string>
+    <string name="commentButton">Like</string>
+    <string name="likeButton">Share</string>
+    <string name="commentHere">Comment here</string>
+    <string name="username1">boy_fomo</string>
+    <string name="username2">haruhihi_24</string>
+    <string name="username3">brunoboy</string>
+    <string name="username4">smith_05</string>
+    <string name="username5">play_persona3R</string>
+    <string name="username6">jaaaames_baxter</string>
+    <string name="username7">jorgen_von</string>
+    <string name="username8">jonjon</string>
+    <string name="username9">scorzizi_zizi</string>
+    <string name="username10"></string>
+    <string name="captions1"><b>brunoboy</b> Just rewatched The Irishman again today! I noticed more of the nuances the 3rd time around</string>
+    <string name="captions2"><b>play_persona3R</b> Had a fun time playing Persona 3 Reload. Showed me a glimpse of what my life could\'ve been &#128546;</string>
+    <string name="captions3"><b>si_stranding</b> Saw this AMAZING view while walking alone. I just HAD to take a picture 📸</string>
+    <string name="captions4"><b>boy_fomo</b> He is literally me</string>
+    <string name="captions5"><b>jorgen_von</b> He is HIM. THAT\'S WHY HE\'S THE GOAT!!!! AKJHADSFKLJHA</string>
+    <string name="avatarContentDesc">avatar</string>
+    <string name="postContentDesc">post</string>
+
+</resources>
