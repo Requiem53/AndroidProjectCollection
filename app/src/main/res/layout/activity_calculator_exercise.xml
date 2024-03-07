@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculatorExercise">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/factoredOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="textEnd"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/typedOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="textEnd"
+            android:textSize="40sp" />
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/calc7"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc7" />
+
+                <Button
+                    android:id="@+id/calc8"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc8" />
+
+                <Button
+                    android:id="@+id/calc9"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc9" />
+
+                <Button
+                    android:id="@+id/calcDivide"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calcDivide" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/calc4"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc4" />
+
+                <Button
+                    android:id="@+id/calc5"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc5" />
+
+                <Button
+                    android:id="@+id/calc6"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc6" />
+
+                <Button
+                    android:id="@+id/calcMultiply"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calcMultiply" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/calc1"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc1" />
+
+                <Button
+                    android:id="@+id/calc2"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc2" />
+
+                <Button
+                    android:id="@+id/calc3"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc3" />
+
+                <Button
+                    android:id="@+id/calcMinus"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calcMinus" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/calcDot"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calcDot" />
+
+                <Button
+                    android:id="@+id/calc0"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calc0" />
+
+                <Button
+                    android:id="@+id/calcPlus"
+                    style="@style/CalculatorButton"
+                    android:text="@string/calcPlus" />
+
+                <Button
+                    android:id="@+id/calcEquals"
+                    style="@style/CalculatorButton"
+                    android:backgroundTint="@color/gray"
+                    android:text="@string/calcEquals" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AndroidProjectCollection</string>
     <string name="activity1">Layout Exercise</string>
-    <string name="activity2">Button2</string>
-    <string name="activity3">Button3</string>
+    <string name="activity2">Button Exercise</string>
+    <string name="activity3">Calculator</string>
     <string name="activity4">Button4</string>
     <string name="commentButton">Like</string>
     <string name="likeButton">Share</string>
@@ -25,5 +25,26 @@
     <string name="captions5"><b>jorgen_von</b> He is HIM. THAT\'S WHY HE\'S THE GOAT!!!! AKJHADSFKLJHA</string>
     <string name="avatarContentDesc">avatar</string>
     <string name="postContentDesc">post</string>
-
+    <string name="btnExercise1">Close</string>
+    <string name="btnExercise2">Toast</string>
+    <string name="btnExercise3">Change BG</string>
+    <string name="btnExercise4">Change Button BG</string>
+    <string name="btnExercise5">Disappear</string>
+    <string name="returnExercise">Return</string>
+    <string name="calc0">0</string>
+    <string name="calc1">1</string>
+    <string name="calc2">2</string>
+    <string name="calc3">3</string>
+    <string name="calc4">4</string>
+    <string name="calc5">5</string>
+    <string name="calc6">6</string>
+    <string name="calc7">7</string>
+    <string name="calc8">8</string>
+    <string name="calc9">9</string>
+    <string name="calcDivide">/</string>
+    <string name="calcMultiply">*</string>
+    <string name="calcMinus">-</string>
+    <string name="calcPlus">+</string>
+    <string name="calcDot">.</string>
+    <string name="calcEquals">=</string>
 </resources>

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnButtonExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -27,14 +27,14 @@
         app:layout_constraintTop_toBottomOf="@+id/btnLayoutExercise" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnCalculator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="@string/activity3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnButtonExercise" />
 
     <Button
         android:id="@+id/button5"
@@ -44,5 +44,5 @@
         android:text="@string/activity4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculator" />
 </androidx.constraintlayout.widget.ConstraintLayout>
