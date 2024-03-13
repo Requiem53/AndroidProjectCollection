@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.function.DoubleUnaryOperator;
 
 public class CalculatorExercise extends AppCompatActivity {
 
@@ -38,6 +37,11 @@ public class CalculatorExercise extends AppCompatActivity {
 
     Queue<Double> seqQueueNum = new LinkedList();
     Queue<Character> seqQueueOp = new LinkedList();
+
+    LinkedList<Double> mdasQueueNum = new LinkedList();
+    LinkedList<Character> mdasQueueOp = new LinkedList();
+
+    double finalAns = 0;
 
     boolean decimaled = false;
 
@@ -146,7 +150,31 @@ public class CalculatorExercise extends AppCompatActivity {
         });
 
         calcEquals.setOnClickListener(view -> {
-
+            for(int i = 0; i < mdasQueueOp.size(); i++){
+                if(mdasQueueOp.get(i) == '*' || mdasQueueOp.get(i) == '/'){
+                    if(mdasQueueOp.get(i) == '*'){
+                        finalAns = mdasQueueNum.remove(i) * mdasQueueNum.remove(i);
+                    }else if(mdasQueueOp.get(i) == '/'){
+                        finalAns = mdasQueueNum.remove(i) / mdasQueueNum.remove(i);
+                    }
+                    mdasQueueNum.add(finalAns);
+                    mdasQueueOp.remove(i);
+                    i--;
+                }
+            }
+            for(int i = 0; i < mdasQueueOp.size(); i++){
+                if(mdasQueueOp.get(i) == '+' || mdasQueueOp.get(i) == '-'){
+                    if(mdasQueueOp.get(i) == '+'){
+                        finalAns = mdasQueueNum.remove(i) + mdasQueueNum.remove(i);
+                    }else if(mdasQueueOp.get(i) == '-'){
+                        finalAns = mdasQueueNum.remove(i) - mdasQueueNum.remove(i);
+                    }
+                    mdasQueueNum.add(finalAns);
+                    mdasQueueOp.remove(i);
+                    i--;
+                }
+            }
+            finalOutput.setText(finalAns+"");
         });
 
         calcDelete.setOnClickListener(view -> {
@@ -188,6 +216,7 @@ public class CalculatorExercise extends AppCompatActivity {
 
     void evaluateSeqExpression(){
         if(typedText.length() <= 0){
+            finalOutput.setText("0");
             seqQueueNum.clear();
             return;
         }
@@ -202,7 +231,6 @@ public class CalculatorExercise extends AppCompatActivity {
         int decimalState = 0;
 
         //bug: double operation ma queue
-
         for(int i = 0; i < typedText.length(); i++){
             if(Character.isDigit(typedText.charAt(i))){
                 if(decimalState > 0){
@@ -229,27 +257,42 @@ public class CalculatorExercise extends AppCompatActivity {
         }
 
         char opState;
+        seqNum = 0;
 
-//        while(!seqQueueNum.isEmpty()){
-//            if(seqQueueOp.isEmpty())
-//                break;
-//            seqNum = seqQueueNum.remove();
-//            opState = seqQueueOp.remove();
-//
-//            switch(opState){
-//                case '+':
-//                    seqNum += seqQueueNum.remove();
-//                case '-':
-//                    seqNum -= seqQueueNum.remove();
-//                case '*':
-//                    seqNum *= seqQueueNum.remove();
-//                case '/':
-//                    seqNum /= seqQueueNum.remove();
-//            }
-//        }
+        mdasQueueNum = new LinkedList<>(seqQueueNum);
+        mdasQueueOp = new LinkedList<>(seqQueueOp);
 
-        finalOutput.setText(seqQueueNum.toString() + " - " + seqQueueOp.toString());
+        System.out.println(mdasQueueNum + " " + mdasQueueOp);
+
+        //for sequential eval
+        while(!seqQueueNum.isEmpty()){
+            if(seqNum == 0){
+                seqNum = seqQueueNum.remove();
+            }
+            if(seqQueueOp.isEmpty())
+                break;
+
+            opState = seqQueueOp.remove();
+
+            switch(opState){
+                case '+':
+                    seqNum += seqQueueNum.remove();
+                    break;
+                case '-':
+                    seqNum -= seqQueueNum.remove();
+                    break;
+                case '*':
+                    seqNum *= seqQueueNum.remove();
+                    break;
+                case '/':
+                    seqNum /= seqQueueNum.remove();
+                    break;
+            }
+        }
+
+        finalOutput.setText(seqNum + "");
         seqQueueNum.clear();
+        seqQueueOp.clear();
     }
 
     char typedLast(){
