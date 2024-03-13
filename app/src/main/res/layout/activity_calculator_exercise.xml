@@ -20,13 +20,29 @@
             android:textAlignment="textEnd"
             android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/typedOutput"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textAlignment="textEnd"
-            android:textSize="40sp" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/calcDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="2dp"
+                android:text="@string/calcDelete" />
+
+            <TextView
+                android:id="@+id/typedOutput"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="TextView"
+                android:textAlignment="textEnd"
+                android:textSize="40sp" />
+
+        </LinearLayout>
 
         <TableLayout
             android:layout_width="fill_parent"

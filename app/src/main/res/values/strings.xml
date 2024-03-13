@@ -47,4 +47,5 @@
     <string name="calcPlus">+</string>
     <string name="calcDot">.</string>
     <string name="calcEquals">=</string>
+    <string name="calcDelete">Delete</string>
 </resources>
