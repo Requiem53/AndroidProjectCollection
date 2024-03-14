@@ -11,6 +11,8 @@ import java.util.Queue;
 
 public class CalculatorExercise extends AppCompatActivity {
 
+    MyCalculatorClass calcInstance;
+
     Button calc0;
     Button calc1;
     Button calc2;
@@ -31,19 +33,6 @@ public class CalculatorExercise extends AppCompatActivity {
 
     TextView typedOutput;
     TextView finalOutput;
-
-    StringBuilder typedText;
-    StringBuilder finalText;
-
-    Queue<Double> seqQueueNum = new LinkedList();
-    Queue<Character> seqQueueOp = new LinkedList();
-
-    LinkedList<Double> mdasQueueNum = new LinkedList();
-    LinkedList<Character> mdasQueueOp = new LinkedList();
-
-    double finalAns = 0;
-
-    boolean decimaled = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,240 +57,80 @@ public class CalculatorExercise extends AppCompatActivity {
         calcEquals = findViewById(R.id.calcEquals);
         calcDelete = findViewById(R.id.calcDelete);
 
-        typedOutput = findViewById(R.id.typedOutput);
-        finalOutput = findViewById(R.id.factoredOutput);
+        typedOutput = findViewById(R.id.factoredOutput);
+        finalOutput = findViewById(R.id.typedOutput);
 
         typedOutput.setText("0");
         finalOutput.setText("0");
 
-        typedText = new StringBuilder();
-        finalText = new StringBuilder();
+        calcInstance = new MyCalculatorClass(typedOutput, finalOutput);
 
         calc0.setOnClickListener(view -> {
-            typeNum('0');
+            calcInstance.typeNum('0');
         });
 
         calc1.setOnClickListener(view -> {
-           typeNum('1');
+            calcInstance.typeNum('1');
         });
 
         calc2.setOnClickListener(view -> {
-            typeNum('2');
+            calcInstance.typeNum('2');
         });
 
         calc3.setOnClickListener(view -> {
-            typeNum('3');
+            calcInstance.typeNum('3');
         });
 
         calc4.setOnClickListener(view -> {
-            typeNum('4');
+            calcInstance.typeNum('4');
         });
 
         calc5.setOnClickListener(view -> {
-            typeNum('5');
+            calcInstance.typeNum('5');
         });
 
         calc6.setOnClickListener(view -> {
-            typeNum('6');
+            calcInstance.typeNum('6');
         });
 
         calc7.setOnClickListener(view -> {
-            typeNum('7');
+            calcInstance.typeNum('7');
         });
 
         calc8.setOnClickListener(view -> {
-            typeNum('8');
+            calcInstance.typeNum('8');
         });
 
         calc9.setOnClickListener(view -> {
-            typeNum('9');
+            calcInstance.typeNum('9');
         });
 
         calcDivide.setOnClickListener(view -> {
-            typeOperation('/');
+            calcInstance.typeOperation('/');
         });
 
         calcMultiply.setOnClickListener(view -> {
-            typeOperation('*');
+            calcInstance.typeOperation('*');
         });
 
         calcPlus.setOnClickListener(view -> {
-            typeOperation('+');
+            calcInstance.typeOperation('+');
         });
 
         calcMinus.setOnClickListener(view -> {
-            typeOperation('-');
-        });
-
-        //Add it so its allowed on a lone number
-        calcDot.setOnClickListener(view -> {
-            if(typedText.length() == 0){
-                typedText.append("0.");
-            }else{
-                if(typedLast() == '.'){
-                    typedText.deleteCharAt(typedText.length()-1);
-                    decimaled = false;
-                }else if(!decimaled){
-                    typedText.append(".");
-                    decimaled = true;
-                }
-            }
-            typedOutput.setText(typedText);
-        });
-
-        calcEquals.setOnClickListener(view -> {
-            for(int i = 0; i < mdasQueueOp.size(); i++){
-                if(mdasQueueOp.get(i) == '*' || mdasQueueOp.get(i) == '/'){
-                    if(mdasQueueOp.get(i) == '*'){
-                        finalAns = mdasQueueNum.remove(i) * mdasQueueNum.remove(i);
-                    }else if(mdasQueueOp.get(i) == '/'){
-                        finalAns = mdasQueueNum.remove(i) / mdasQueueNum.remove(i);
-                    }
-                    mdasQueueNum.add(finalAns);
-                    mdasQueueOp.remove(i);
-                    i--;
-                }
-            }
-            for(int i = 0; i < mdasQueueOp.size(); i++){
-                if(mdasQueueOp.get(i) == '+' || mdasQueueOp.get(i) == '-'){
-                    if(mdasQueueOp.get(i) == '+'){
-                        finalAns = mdasQueueNum.remove(i) + mdasQueueNum.remove(i);
-                    }else if(mdasQueueOp.get(i) == '-'){
-                        finalAns = mdasQueueNum.remove(i) - mdasQueueNum.remove(i);
-                    }
-                    mdasQueueNum.add(finalAns);
-                    mdasQueueOp.remove(i);
-                    i--;
-                }
-            }
-            finalOutput.setText(finalAns+"");
+            calcInstance.typeOperation('-');
         });
 
         calcDelete.setOnClickListener(view -> {
-            if(typedText.length() > 0){
-                if(typedLast() == '.'){
-                    decimaled = false;
-                }
-                if(typedText.length() == 1)
-                    typedText.setCharAt(0, '0');
-                else
-                    typedText.deleteCharAt(typedText.length()-1);
-            }
-            typedOutput.setText(typedText);
-            evaluateSeqExpression();
+            calcInstance.typeDelete();
         });
-    }
 
-    void typeNum(char num){
-        if(typedText.length() == 0){
-            typedText.append(num);
-        } else if(typedText.length() == 1 && typedLast() == '0'){
-            typedText.setCharAt(typedText.length()-1, num);
-        }else{
-            typedText.append(num);
-        }
-        typedOutput.setText(typedText);
-        evaluateSeqExpression();
-    }
+        calcDot.setOnClickListener(view -> {
+            calcInstance.typeDot();
+        });
 
-    void typeOperation(char op){
-        if(typedText.length() == 0){
-            return;
-        }else if(typedLast() == '+' || typedLast() == '-' || typedLast() == '/' || typedLast() == '*'){
-            typedText.setCharAt(typedText.length()-1, op);
-        }else{
-            typedText.append(op);
-            decimaled = false;
-        }
-        typedOutput.setText(typedText);
-        evaluateSeqExpression();
-    }
-
-    void evaluateSeqExpression(){
-        if(typedText.length() <= 0){
-            finalOutput.setText("0");
-            seqQueueNum.clear();
-            return;
-        }
-
-        if(typedLast() == '+' || typedLast() == '-' || typedLast() == '/' || typedLast() == '*'){
-            return;
-        }
-
-        if(typedLast() == '.'){
-            typedText.deleteCharAt(typedText.length()-1);
-            typedOutput.setText(typedText);
-            decimaled = false;
-        }
-
-        double seqNum = 0;
-        int decimalState = 0;
-
-        //bug: double operation ma queue
-        for(int i = 0; i < typedText.length(); i++){
-            if(Character.isDigit(typedText.charAt(i))){
-                if(decimalState > 0){
-                    seqNum += Character.digit(typedText.charAt(i), 10) / (Math.pow(10,decimalState));
-                    decimalState++;
-                }else if(seqNum != 0){
-                    seqNum *= 10;
-                    seqNum += Character.digit(typedText.charAt(i), 10);
-                }else{
-                    seqNum = Character.digit(typedText.charAt(i), 10);
-                }
-                if(i+1 >= typedText.length()){
-                    seqQueueNum.add(seqNum);
-                }
-            } else if(typedText.charAt(i) == '.'){
-                decimalState = 1;
-            } else{
-                decimalState = 0;
-                seqQueueNum.add(seqNum);
-                seqQueueOp.add(typedText.charAt(i));
-                seqNum = 0;
-            }
-        }
-
-        char opState;
-        seqNum = 0;
-
-        mdasQueueNum = new LinkedList<>(seqQueueNum);
-        mdasQueueOp = new LinkedList<>(seqQueueOp);
-
-        System.out.println(mdasQueueNum + " " + mdasQueueOp);
-
-        //for sequential eval
-        while(!seqQueueNum.isEmpty()){
-            if(seqNum == 0){
-                seqNum = seqQueueNum.remove();
-            }
-            if(seqQueueOp.isEmpty())
-                break;
-
-            opState = seqQueueOp.remove();
-
-            switch(opState){
-                case '+':
-                    seqNum += seqQueueNum.remove();
-                    break;
-                case '-':
-                    seqNum -= seqQueueNum.remove();
-                    break;
-                case '*':
-                    seqNum *= seqQueueNum.remove();
-                    break;
-                case '/':
-                    seqNum /= seqQueueNum.remove();
-                    break;
-            }
-        }
-
-        finalOutput.setText(seqNum + "");
-        seqQueueNum.clear();
-        seqQueueOp.clear();
-    }
-
-    char typedLast(){
-        return typedText.charAt(typedText.length()-1);
+        calcEquals.setOnClickListener(view -> {
+            calcInstance.evaluateMDASExpression();
+        });
     }
 }
