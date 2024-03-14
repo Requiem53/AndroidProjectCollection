@@ -182,7 +182,10 @@ public class CalculatorExercise extends AppCompatActivity {
                 if(typedLast() == '.'){
                     decimaled = false;
                 }
-                typedText.deleteCharAt(typedText.length()-1);
+                if(typedText.length() == 1)
+                    typedText.setCharAt(0, '0');
+                else
+                    typedText.deleteCharAt(typedText.length()-1);
             }
             typedOutput.setText(typedText);
             evaluateSeqExpression();
@@ -225,9 +228,13 @@ public class CalculatorExercise extends AppCompatActivity {
             return;
         }
 
-        double seqNum = 0;
-        double temp = 0;
+        if(typedLast() == '.'){
+            typedText.deleteCharAt(typedText.length()-1);
+            typedOutput.setText(typedText);
+            decimaled = false;
+        }
 
+        double seqNum = 0;
         int decimalState = 0;
 
         //bug: double operation ma queue
@@ -242,7 +249,6 @@ public class CalculatorExercise extends AppCompatActivity {
                 }else{
                     seqNum = Character.digit(typedText.charAt(i), 10);
                 }
-
                 if(i+1 >= typedText.length()){
                     seqQueueNum.add(seqNum);
                 }
