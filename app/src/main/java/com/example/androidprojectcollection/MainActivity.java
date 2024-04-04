@@ -43,5 +43,13 @@ public class MainActivity extends AppCompatActivity {
             );
             startActivity(intent1);
         });
+
+        btn4 = findViewById(R.id.btnConnect3);
+        btn4.setOnClickListener(view -> {
+            Intent intent1 = new Intent(
+                    MainActivity.this, Connect3Exercise.class
+            );
+            startActivity(intent1);
+        });
     }
 }

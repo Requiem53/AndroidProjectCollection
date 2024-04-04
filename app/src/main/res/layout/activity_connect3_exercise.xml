@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Connect3Exercise">
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESET"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/currentPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            android:gravity="center">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/connect00"
+                        style="@style/Connect3Button"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect01"
+                        style="@style/Connect3Button"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect02"
+                        style="@style/Connect3Button"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect03"
+                        style="@style/Connect3Button"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect04"
+                        style="@style/Connect3Button"
+                        app:backgroundTint="@null" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/connect10"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect11"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect12"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect13"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect14"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/connect20"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect21"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect22"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect23"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect24"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/connect30"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect31"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect32"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect33"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect34"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/connect40"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect41"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect42"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect43"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/connect44"
+                        style="@style/Connect3Button"
+
+                        app:backgroundTint="@null" />
+                </TableRow>
+            </TableLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
