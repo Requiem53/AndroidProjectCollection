@@ -65,14 +65,7 @@ public class Connect3Exercise extends AppCompatActivity {
         });
 
         resetButton.setOnClickListener(view -> {
-            for(int row = 0; row < 5; row++){
-                for (int col = 0; col < 5; col++){
-                    allButtons[row][col].setBackgroundTintList(getColorStateList(R.color.white));
-                    allStatus[row][col] = 0;
-                    currentPlayer = false;
-                    currentPlayerText.setText("Player 1's Turn:");
-                }
-            }
+            reset();
         });
     }
 
@@ -94,12 +87,15 @@ public class Connect3Exercise extends AppCompatActivity {
             }
             System.out.println("------------------------------------------------------------");
 
-//            System.out.println("STATUS DIAGONAL BACK: " + checkWinDiagonalBack(currPlayerCoin(), row-1 , position));
-//            System.out.println("STATUS DIAGONAL FRONT: " + checkWinDiagonalFront(currPlayerCoin(), row-1 , position));
-//            System.out.println("STATUS HORIZONTAL: " + checkWinHorizontal(currPlayerCoin(), row-1 , position));
-//            System.out.println("STATUS VERTICAL: " + checkWinVertical(currPlayerCoin(), row-1 , position));
+            System.out.println("STATUS DIAGONAL BACK: " + checkWinDiagonalBack(currPlayerCoin(), row-1 , position));
+            System.out.println("STATUS DIAGONAL FRONT: " + checkWinDiagonalFront(currPlayerCoin(), row-1 , position));
+            System.out.println("STATUS HORIZONTAL: " + checkWinHorizontal(currPlayerCoin(), row-1 , position));
+            System.out.println("STATUS VERTICAL: " + checkWinVertical(currPlayerCoin(), row-1 , position));
             if(checkWin(currPlayerCoin(), row-1, position)){
-                currentPlayerText.setText("Somebody won!");
+                currentPlayerText.setText("Player " + currPlayerCoin() + " won!");
+                for(int i = 0; i <  5; i++){
+                    allButtons[0][i].setClickable(false);
+                }
                 return;
             }
 
@@ -110,10 +106,10 @@ public class Connect3Exercise extends AppCompatActivity {
 
     ColorStateList currCoinColor(){
         if(currentPlayer){
-            currentPlayerText.setText("Player 2's Turn:");
+            currentPlayerText.setText("Player 1's Turn:");
             return getColorStateList(R.color.green);
         }else{
-            currentPlayerText.setText("Player 1's Turn:");
+            currentPlayerText.setText("Player 2's Turn:");
             return getColorStateList(R.color.orange);
         }
     }
@@ -123,6 +119,20 @@ public class Connect3Exercise extends AppCompatActivity {
             return 2;
         }else{
             return 1;
+        }
+    }
+
+    void reset(){
+        for(int row = 0; row < 5; row++){
+            for (int col = 0; col < 5; col++){
+                allButtons[row][col].setBackgroundTintList(getColorStateList(R.color.white));
+                allStatus[row][col] = 0;
+                currentPlayer = false;
+                currentPlayerText.setText("Player 1's Turn:");
+            }
+        }
+        for(int i = 0; i < 5; i++){
+            allButtons[0][i].setClickable(true);
         }
     }
 
@@ -152,14 +162,14 @@ public class Connect3Exercise extends AppCompatActivity {
         if(row >= 5 || row < 0 || col >= 5 || col < 0 || player != allStatus[row][col]){
             return 0;
         }
-        return checkWinDiagonalBackLeft(player, row+1, col+1) + 1;
+        return checkWinDiagonalBackLeft(player, row+1, col-1) + 1;
     }
     int checkWinDiagonalBackRight(int player, int row, int col){
         //MARIE STOPPPP
         if(row >= 5 || row < 0 || col >= 5 || col < 0 || player != allStatus[row][col]){
             return 0;
         }
-        return checkWinDiagonalBackRight(player, row-1, col-1) + 1;
+        return checkWinDiagonalBackRight(player, row-1, col+1) + 1;
     }
 
     //DIAGONAL FRONT
@@ -199,7 +209,7 @@ public class Connect3Exercise extends AppCompatActivity {
         if(col >= 5 || col < 0 || player != allStatus[row][col]){
             return 0;
         }
-        return checkWinHorizontalRight(player, row-1, col+1) + 1;
+        return checkWinHorizontalRight(player, row, col+1) + 1;
     }
 
     //VERTICAL CHECKER
