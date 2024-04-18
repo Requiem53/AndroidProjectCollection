@@ -12,9 +12,10 @@
         android:theme="@style/Theme.AndroidProjectCollection"
         tools:targetApi="31">
         <activity
-            android:name=".Connect3Exercise"
+            android:name=".PassingIntentsExercise"
+            android:exported="true"
             android:configChanges="orientation|screenSize"
-            android:exported="true" >
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,22 +23,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".PassingIntentsExercise2"
+            android:exported="false" />
+        <activity
+            android:name=".Connect3Exercise"
+            android:configChanges="orientation|screenSize"
             android:exported="false">
         </activity>
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".LayoutExercise"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ReturnActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ButtonExercise"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".CalculatorExercise"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

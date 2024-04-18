@@ -21,4 +21,9 @@
         <item name="android:backgroundTint">@color/white</item>
         <item name="android:layout_margin">4dp</item>
     </style>
+
+    <style name="InputFieldLabel">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>
