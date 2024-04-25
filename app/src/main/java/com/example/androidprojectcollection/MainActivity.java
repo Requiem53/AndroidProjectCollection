@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn2;
     Button btn3;
     Button btn4;
+    Button btn5;
+    Button btn6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,22 @@ public class MainActivity extends AppCompatActivity {
         btn4.setOnClickListener(view -> {
             Intent intent1 = new Intent(
                     MainActivity.this, Connect3Exercise.class
+            );
+            startActivity(intent1);
+        });
+
+        btn5 = findViewById(R.id.btnPassIntent1);
+        btn5.setOnClickListener(view -> {
+            Intent intent1 = new Intent(
+                    MainActivity.this, PassingIntentsExercise.class
+            );
+            startActivity(intent1);
+        });
+
+        btn6 = findViewById(R.id.btnMenus);
+        btn6.setOnClickListener(view -> {
+            Intent intent1 = new Intent(
+                    MainActivity.this, MenuExercise.class
             );
             startActivity(intent1);
         });

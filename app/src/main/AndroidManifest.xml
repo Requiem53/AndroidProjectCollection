@@ -12,29 +12,33 @@
         android:theme="@style/Theme.AndroidProjectCollection"
         tools:targetApi="31">
         <activity
+            android:name=".MenuExercise"
+            android:exported="false" >
+        </activity>
+        <activity
             android:name=".PassingIntentsExercise"
-            android:exported="true"
             android:configChanges="orientation|screenSize"
+            android:exported="false"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".PassingIntentsExercise2"
-            android:exported="false"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="stateHidden"/>
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Connect3Exercise"
             android:configChanges="orientation|screenSize"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".LayoutExercise"
             android:exported="false" />

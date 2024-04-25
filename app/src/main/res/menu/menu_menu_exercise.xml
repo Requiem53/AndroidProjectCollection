@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mItemChange"
+        android:title="@string/menu1">
+        <menu>
+            <item
+                android:id="@+id/mItemChange1"
+                android:title="@string/change1" />
+            <item
+                android:id="@+id/mItemChange2"
+                android:title="@string/change2" />
+            <item
+                android:id="@+id/mItemChange3"
+                android:title="@string/change3" />
+            <item
+                android:id="@+id/mItemChange4"
+                android:title="@string/change4" />
+            <item
+                android:id="@+id/mItemChange5"
+                android:title="@string/change5" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/mItemReset"
+        android:title="@string/menu2" />
+    <item
+        android:id="@+id/mItemExit"
+        android:title="@string/menu3" />
+</menu>

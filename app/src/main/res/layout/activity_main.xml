@@ -46,6 +46,12 @@
             android:layout_height="wrap_content"
             android:text="@string/activity5" />
 
+        <Button
+            android:id="@+id/btnMenus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity6" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
