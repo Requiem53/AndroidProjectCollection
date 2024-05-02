@@ -6,7 +6,10 @@
     <string name="activity4">Connect 3</string>
     <string name="activity5">Passing Intents</string>
     <string name="activity6">Menus</string>
-    <string name="activity7">Passing Intents</string>
+    <string name="activity7">Opening Maps</string>
+    <string name="activity8">Passing Intents</string>
+    <string name="activity9">Passing Intents</string>
+    <string name="activity10">Passing Intents</string>
     <string name="commentButton">Like</string>
     <string name="likeButton">Share</string>
     <string name="commentHere">Comment here</string>
@@ -59,4 +62,9 @@
     <string name="change5">Change to Transparent</string>
     <string name="menu2">Reset</string>
     <string name="menu3">Exit</string>
+    <string name="location1">Biga Pit, Toledo City</string>
+    <string name="location2">Numazu, Japan</string>
+    <string name="location3">Netherlands, Amsterdam</string>
+    <string name="location4">Rome, Italy</string>
+    <string name="location5">Sicily, Italy</string>
 </resources>

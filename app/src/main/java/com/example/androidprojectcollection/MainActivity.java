@@ -3,6 +3,7 @@ package com.example.androidprojectcollection;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
     Button btn4;
     Button btn5;
     Button btn6;
+    Button btn7;
+    Button btn9;
+    Button btn10;
+    Button btn8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent1 = new Intent(
                     MainActivity.this, MenuExercise.class
             );
+            startActivity(intent1);
+        });
+
+        btn7 = findViewById(R.id.btnMaps);
+        btn7.setOnClickListener(view -> {
+            Intent intent1 = new Intent(MainActivity.this, MapsExercise.class);
             startActivity(intent1);
         });
     }
